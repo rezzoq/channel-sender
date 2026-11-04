@@ -1,6 +1,7 @@
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
-    application
+    java
+    id("org.springframework.boot") version "4.1.2"
+    id("io.spring.dependency-management") version "1.1.7"
 }
 
 repositories {
@@ -10,16 +11,17 @@ repositories {
 
 dependencies {
     implementation(project(":common"))
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
-// Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
-application {
-    // Define the main class for the application.
-    mainClass = "notificator.App"
+tasks.withType<Test> {
+    useJUnitPlatform()
 }
