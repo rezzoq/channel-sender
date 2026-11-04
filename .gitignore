@@ -34,3 +34,4 @@ ProjectDump.java
 project_dump.txt
 
 !gradle/wrapper/gradle-wrapper.jar
+.env
