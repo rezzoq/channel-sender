@@ -30,4 +30,6 @@ public class ApiKey {
         this.keyHash = keyHash;
         this.createdAt = Instant.now();
     }
+
+    public UUID getTenantId() { return tenantId; }
 }
